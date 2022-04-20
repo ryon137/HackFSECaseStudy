@@ -2,23 +2,23 @@ package com.example.HackFSE.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 public class Stock {
     @Id
     private UUID stockId;
     private double price;
-    private Date date;
-    private Date date_time;
-    private Company relatedCompany;
+    private LocalDateTime date;
+    private Optional<Company> relatedCompany;
 
-    public Stock(UUID id, double price, Date date, Date date_time, Company relatedCompany) {
+    public Stock(UUID id, double price, Date date, Company relatedCompany) {
         this.stockId = id;
         this.price = price;
-        this.date = date;
-        this.date_time = date_time;
-        this.relatedCompany = relatedCompany;
+        this.date = LocalDateTime.now();
+        this.relatedCompany = Optional.ofNullable(relatedCompany);
     }
 
     public UUID getStockId() {
@@ -29,15 +29,11 @@ public class Stock {
         return price;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public Date getDate_time() {
-        return date_time;
-    }
-
-    public Company getRelatedCompany() {
+    public Optional<Company> getRelatedCompany() {
         return relatedCompany;
     }
 
@@ -49,15 +45,11 @@ public class Stock {
         this.price = price;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    public void setDate_time(Date date_time) {
-        this.date_time = date_time;
-    }
-
-    public void setRelatedCompany(Company relatedCompany) {
+    public void setRelatedCompany(Optional<Company> relatedCompany) {
         this.relatedCompany = relatedCompany;
     }
 
@@ -67,7 +59,6 @@ public class Stock {
                 "stockId=" + stockId +
                 ", price=" + price +
                 ", date=" + date +
-                ", date_time=" + date_time +
                 ", relatedCompany=" + relatedCompany +
                 '}';
     }

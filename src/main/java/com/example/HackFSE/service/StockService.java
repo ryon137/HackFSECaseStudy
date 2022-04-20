@@ -1,5 +1,6 @@
 package com.example.HackFSE.service;
 
+import com.example.HackFSE.model.Company;
 import com.example.HackFSE.model.Stock;
 import com.example.HackFSE.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class StockService {
     }
     public Optional<Stock> getStock(UUID stockId){
         return stockRepository.findById(String.valueOf(stockId));
+    }
+
+    public List<Stock> getCompanyStock(Optional<Company> relatedCompany){
+        return stockRepository.findByRelatedCompany(relatedCompany);
     }
     public Stock addStock (Stock stock){
         return stockRepository.save(stock);
