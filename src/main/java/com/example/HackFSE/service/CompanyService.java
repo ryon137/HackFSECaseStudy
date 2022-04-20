@@ -17,10 +17,12 @@ public class CompanyService {
     }
 
     public List<Company> getCompanies(){
+        //also return stock price of each company
         return companyRepository.findAll();
     }
 
     public Optional<Company> getCompany(UUID companyCode){
+        //also return stock price of this company
         return companyRepository.findById(String.valueOf(companyCode));
     }
 
@@ -28,9 +30,11 @@ public class CompanyService {
         return companyRepository.save(company);
     }
 
-    public void deleteCompany(UUID companyCode){
-        Optional<Company> company = companyRepository.findById(companyCode.toString());
-        companyRepository.delete(company);
+    public Optional<Company> deleteCompany(UUID companyCode){
+        Optional<Company> company = companyRepository.findById(String.valueOf(companyCode));
+        companyRepository.deleteById(String.valueOf(companyCode));
         System.out.println("Company " + company + " deleted");
+        //delete all stock price associate with it- call stock service
+        return company;
     }
 }

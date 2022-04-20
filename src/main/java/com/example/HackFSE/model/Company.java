@@ -70,4 +70,16 @@ public class Company {
     public void setListedStockExchange(String listedStockExchange) {
         this.listedStockExchange = listedStockExchange;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "companyCode=" + companyCode +
+                ", companyName='" + companyName + '\'' +
+                ", companyCEO='" + companyCEO + '\'' +
+                ", companyTurnover=" + companyTurnover +
+                ", companyWebsite='" + companyWebsite + '\'' +
+                ", listedStockExchange='" + listedStockExchange + '\'' +
+                '}';
+    }
 }
