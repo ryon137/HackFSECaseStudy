@@ -26,66 +26,56 @@ public class Company {
     private String listedStockExchange;
     private Optional<Stock> relatedStock;
 
-    public Company(UUID companyCode, String companyName, String companyCEO, Double companyTurnover, String companyWebsite, String listedStockExchange, Optional<Stock> relatedStock) {
-        this.companyCode = companyCode;
-        this.companyName = companyName;
-        this.companyCEO = companyCEO;
-        this.companyTurnover = companyTurnover;
-        this.companyWebsite = companyWebsite;
-        this.listedStockExchange = listedStockExchange;
-        this.relatedStock = relatedStock;
-    }
-
     public UUID getCompanyCode() {
         return companyCode;
-    }
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public String getCompanyCEO() {
-        return companyCEO;
-    }
-
-    public Double getCompanyTurnover() {
-        return companyTurnover;
-    }
-
-    public String getCompanyWebsite() {
-        return companyWebsite;
-    }
-
-    public String getListedStockExchange() {
-        return listedStockExchange;
-    }
-
-    public Optional<Stock> getRelatedStock() {
-        return relatedStock;
     }
 
     public void setCompanyCode(UUID companyCode) {
         this.companyCode = companyCode;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    public String getCompanyCEO() {
+        return companyCEO;
     }
 
     public void setCompanyCEO(String companyCEO) {
         this.companyCEO = companyCEO;
     }
 
+    public Double getCompanyTurnover() {
+        return companyTurnover;
+    }
+
     public void setCompanyTurnover(Double companyTurnover) {
         this.companyTurnover = companyTurnover;
+    }
+
+    public String getCompanyWebsite() {
+        return companyWebsite;
     }
 
     public void setCompanyWebsite(String companyWebsite) {
         this.companyWebsite = companyWebsite;
     }
 
+    public String getListedStockExchange() {
+        return listedStockExchange;
+    }
+
     public void setListedStockExchange(String listedStockExchange) {
         this.listedStockExchange = listedStockExchange;
+    }
+
+    public Optional<Stock> getRelatedStock() {
+        return relatedStock;
     }
 
     public void setRelatedStock(Optional<Stock> relatedStock) {
